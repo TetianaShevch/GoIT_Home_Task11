@@ -8,7 +8,7 @@ class Record():
     def __init__(self, name: Name, phone: Phone = None, birthday = None): # телефон і дата народження не є обовязковими агрументами, тому можуть бути і None
         self.name = name
         self.phones = [] # по замовчюванню створимо пустий список
-        self.birthday = date.birthday
+        self.birthday = birthday
         if phone:
             self.phones.append(phone)  # якщо телефон задано, то додамо його в список
     
@@ -24,9 +24,9 @@ class Record():
             print("The contact's birthday is unknown.")
 
     def __str__(self):  
-        birthday_str = str(self.birthday) if self.birthday != None else ""
+        birthday_str = str(date(self.birthday.value.year, self.birthday.value.month, self.birthday.value.day)) if self.birthday != None else ""
         phones_str = " ".join([ph.value for ph in self.phones])
-        return f'{self.name} -->> phone(s): {phones_str} birthday: {birthday_str}/n'
+        return f'{self.name} -->> phone(s): {phones_str} birthday: {birthday_str}\n'
     
     def add_phone(self, phone: Phone):
         for i in self.phones:

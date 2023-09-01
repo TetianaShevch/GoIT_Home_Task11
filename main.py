@@ -15,8 +15,7 @@ if __name__ == "__main__":
     rec1 = Record(name1, phone1, birthday1)
     ab.add_record(rec1)
     assert isinstance(ab['Bill'].birthday, BirthDay)
-    # ab.get_records()
-    print(rec1.days_to_birthday())
+    print(f"The {rec1.name}'s birthday will be after {rec1.days_to_birthday()} days")
         
     print('Name2')
     name2 = Name('Mary')
@@ -24,8 +23,7 @@ if __name__ == "__main__":
     birthday2 = BirthDay('12.12.2003')
     rec2 = Record(name2, birthday=birthday2)
     ab.add_record(rec2)
-    # ab.get_records()
-    print(rec2.days_to_birthday())
+    print(f"The {rec2.name}'s birthday will be after {rec2.days_to_birthday()} days")
 
     print('Name3')
     name3 = Name('John')
@@ -33,13 +31,21 @@ if __name__ == "__main__":
     birthday3 = BirthDay('28.08.2003')
     rec3 = Record(name3, phone3, birthday=birthday3)
     ab.add_record(rec3)
-    # ab.get_records()
-    print(rec3.days_to_birthday())
+    new_phone3 = Phone('0976543645')
+    rec3.add_phone(new_phone3)
+    print(f"The {rec3.name}'s birthday will be after {rec3.days_to_birthday()} days")
 
     print('Name4')
     rec4 = Record(Name('Mike'), Phone('+380671233434'))
     ab.add_record(rec4)
-    print(rec4.days_to_birthday())
+    print(f"The {rec4.name}'s birthday will be after {rec4.days_to_birthday()} days")
+
+    print('Name5')
+    rec5 = Record(Name('Tom'), BirthDay('02.09.2018'))
+    ab.add_record(rec4)
+    new_phone5 = Phone('+380885436456')
+    rec5.add_phone(new_phone5)
+    print(f"The {rec4.name}'s birthday will be after {rec4.days_to_birthday()} days")
     
     # print('Name5')
     # name5 = Name('')
@@ -52,7 +58,7 @@ if __name__ == "__main__":
 
     for i in ab:
         print(i)
-        print('__________________')
+        input('Press the button for continue')
     
    
     

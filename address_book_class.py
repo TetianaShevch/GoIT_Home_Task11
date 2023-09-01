@@ -12,24 +12,21 @@ class AddressBook(UserDict):
         print(f'Contact of {record.name.value} was added')
 
     def __next__(self):
-        if self.n <= 0:
-            raise ValueError("Number of printed lines must be positive")
-        elif self.n > len(self.data):  
+        if self.n > len(self.data):  
             self.n = len(self.data) 
         result = ""
-        print(self.counter)
+        i = 0
+        
         if self.counter < len(self.data):
             for record in self.data.values():  
-                # while i < self.counter//self.n * self.n:
-                #     print(i)
-                #     continue
+                if i < self.counter//self.n * self.n:
+                    i += 1
+                    continue
                 result += str(record)
                 self.counter += 1
                 if not self.counter % self.n:  
-                    print('!!!', result)
                     return result
-                elif self.counter == len(self.data):  # условие для хвоста
-                    print('???', result)
+                elif self.counter == len(self.data):  
                     return result
         else: 
             raise StopIteration

@@ -15,7 +15,7 @@ class BirthDay(Field):
         if len(birthday) > 0:
             try:
                 self.__value = datetime.strptime(birthday, '%d.%m.%Y')
-                print(self.__value)
+                
             except Exception:
                 raise ValueError('Data of birhday should have formate dd.mm.yyyy')
         else:
