@@ -19,9 +19,9 @@ class AddressBook(UserDict):
         
         if self.counter < len(self.data):
             for record in self.data.values():  
-                if i < self.counter//self.n * self.n:
-                    i += 1
-                    continue
+                if i < self.counter//self.n * self.n:  # Щоб ітератор кожен раз видавав нові записи, не знайшла нічого кращого,
+                    i += 1                             # ніж запустити пустий цикл стільки разів, скільки записів вже видано. 
+                    continue                           # Прошу поради, як це зробити культурно саме зі словником.
                 result += str(record)
                 self.counter += 1
                 if not self.counter % self.n:  

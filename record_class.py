@@ -13,17 +13,24 @@ class Record():
             self.phones.append(phone)  # якщо телефон задано, то додамо його в список
     
     def days_to_birthday(self):
-        
+        """
+        Метод days_to_birthday() для кожного запису друкує й передає, скільки днів залишилось до дня народження. 
+        Якщо день народження невідомий, метод days_to_birthday() друкує відповідне повідомлення.
+        """
         if self.birthday: # якщо день народження відомо, то підраховуємо кількість днів до наступного дня народження 
             today = date.today()
             dt = date(today.year, self.birthday.value.month, self.birthday.value.day)
             difference = (dt - today).days
             number_of_days = difference if difference >= 0 else (365 + difference)
+            print(f"The {self.name}'s birthday will be after {number_of_days} days")
             return number_of_days
         else:
-            print("The contact's birthday is unknown.")
+            print("The contact's birthday is unknown.") # якщо день народження невідомий, друкуємо відповідне повідомлення.
 
-    def __str__(self):  
+    def __str__(self):
+        """
+        Метод визначає, в якій формі будуть формуватися записи при конвертації у рядок.
+        """
         birthday_str = str(date(self.birthday.value.year, self.birthday.value.month, self.birthday.value.day)) if self.birthday != None else ""
         phones_str = " ".join([ph.value for ph in self.phones])
         return f'{self.name} -->> phone(s): {phones_str} birthday: {birthday_str}\n'
